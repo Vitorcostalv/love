@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E aí, qual vai ser?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+             /* Adiciona estilos de fundo escuro e fonte do styles.css */
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column; /* Alinha o conteúdo principal verticalmente */
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            /* O container principal agora pode ter estilos mais simples */
+            text-align: center;
+            max-width: 700px; /* Aumenta a largura máxima */
+            width: 100%;
+            padding: 20px;
+        }
+
+        .buttons-container {
+            position: relative; /* Mantém position relative para o botão Não */
+            width: 100%;
+            height: 300px; /* Altura ajustada para a área dos botões */
+            margin-top: 40px;
+            display: flex; /* Usa flexbox para organizar os grupos de botões */
+            flex-direction: column; /* Empilha o grupo de botões de opções e o botão Não */
+            align-items: center; /* Centraliza os itens flex (grupos de botões) */
+            justify-content: space-around; /* Distribui espaço entre os grupos */
+        }
+
+        /* Container para os botões Sim e Estava te esperando */
+        .response-options-flex {
+            display: flex;
+            flex-direction: row; /* Lado a lado em telas maiores */
+            gap: 20px; /* Espaçamento de 20px */
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Permite quebra de linha */
+        }
+
+        .response-button {
+             /* Remove position: absolute para botões dentro de response-options-flex */
+             position: static;
+             /* Remove outras propriedades de posicionamento absoluto */
+             left: auto;
+             top: auto;
+             transform: none;
+
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            border: 2px solid;
+        }
+
+        /* Estilos específicos para o botão Não (mantém posicionamento absoluto para a fuga) */
+        .no-button {
+            position: absolute; /* Mantém position absolute */
+            left: 50%;
+            top: 70%; /* Posição inicial */
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+
+            background: transparent;
+            border-color: var(--neon-red);
+            color: var(--neon-red);
+        }
+
+        .no-button:hover {
+            background: var(--neon-red);
+            color: white;
+            box-shadow: 0 0 20px var(--neon-red);
+        }
+
+        .yes-button {
+            background: transparent;
+            border-color: var(--neon-purple);
+            color: var(--neon-purple);
+        }
+
+        .yes-button:hover {
+            background: var(--neon-purple);
+            color: white;
+            box-shadow: 0 0 20px var(--neon-purple);
+        }
+
+        .waiting-button {
+            background: transparent;
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+        }
+
+        .waiting-button:hover {
+            background: var(--neon-blue);
+            color: white;
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+
+        .title {
+            color: var(--neon-purple);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .buttons-container {
+                height: 350px; /* Ajusta altura em telas menores */
+            }
+
+            .response-options-flex {
+                /* flex-direction: column; Removido para manter lado a lado */
+                gap: 15px; /* Espaçamento menor */
+                justify-content: center; /* Centraliza horizontalmente */
+            }
+
+            .response-button {
+                width: 80%; /* Largura ajustada */
+                max-width: 250px;
+                font-size: 1.1rem;
+            }
+             .no-button {
+                 top: 80%; /* Ajusta posição inicial do botão Não em mobile */
+             }
+        }
+    </style>
+</head>
+<body>
+    <!-- Adicionando o canvas para os efeitos -->
+    <canvas id="landingEffectsCanvas"></canvas>
+
+    <div class="container">
+        <h1 class="title neon-text">E então vamos ficar juntos? ❤️</h1>
+        <div class="buttons-container">
+            <!-- Container para os botões Sim e Estava te esperando -->
+            <div class="response-options-flex">
+                <button class="response-button yes-button" onclick="window.location.href='Heart_in_JavaScript-main/Coracao.html'">
+                    Sim ❤️
+                </button>
+                <button class="response-button waiting-button" onclick="window.location.href='Heart_in_JavaScript-main/Coracao.html'">
+                    Estava te esperando 😍
+                </button>
+            </div>
+            <!-- O botão Não permanece aqui para a lógica de fuga -->
+            <button class="response-button no-button" id="noButton">
+                Não ❌
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const container = document.querySelector('.buttons-container');
+
+        noButton.addEventListener('mouseover', () => {
+            const containerRect = container.getBoundingClientRect();
+            const buttonRect = noButton.getBoundingClientRect();
+            
+            // Calcula novas posições aleatórias dentro do container
+            // Garante que o botão não saia completamente do container
+            const maxX = containerRect.width - buttonRect.width;
+            const maxY = containerRect.height - buttonRect.height;
+            
+            // Gera posições aleatórias dentro dos limites do container
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            
+            // Aplica as novas posições usando left e top (relativos ao container)
+            noButton.style.left = `${newX}px`;
+            noButton.style.top = `${newY}px`;
+            
+            // Remove a transformação de centralização inicial
+            noButton.style.transform = 'none';
+             // Adiciona uma transição suave para o movimento
+            noButton.style.transition = 'all 0.2s ease-out';
+        });
+         // Adiciona um pequeno atraso antes de remover a transição para permitir que ela ocorra
+        noButton.addEventListener('transitionend', () => {
+             noButton.style.transition = 'none';
+        });
+
+        noButton.addEventListener('click', () => {
+            alert('Acho que precisa ver dnv');
+            window.location.reload();
+        });
+    </script>
+
+    <!-- Linkando o script de efeitos -->
+    <script src="landing_effects.js"></script>
+
+</body>
+</html> 

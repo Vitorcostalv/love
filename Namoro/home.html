@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .timeline-section {
+            margin-bottom: 60px;
+        }
+
+        .timeline-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .benefit-card {
+            background: var(--card-bg);
+            border: 1px solid var(--neon-purple);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--neon-purple);
+        }
+
+        .final-button {
+            display: block;
+            width: 200px;
+            margin: 60px auto 40px;
+            padding: 15px 30px;
+            background: transparent;
+            border: 2px solid var(--neon-red);
+            color: var(--neon-red);
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .final-button:hover {
+            background: var(--neon-red);
+            color: white;
+            box-shadow: 0 0 20px var(--neon-red);
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .section-title {
+            color: var(--neon-purple);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        @keyframes floatHome {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(calc(var(--random-x) * 1px));
+                opacity: 0;
+            }
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(176, 38, 255, 0.5);
+            border-radius: 50%;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="timeline">
+
+            <!-- Quem sou eu (Esquerda) -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-content-wrapper">
+                    <div class="timeline-content card-quem-sou-eu">
+                        <h2 class="section-title neon-text">Quem sou eu</h2>
+                        
+                        <p>Prazer, Vitor! Tenho 20 anos, gosto de ler, jogar e me perder por horas em ideias aleatórias enquanto escuto música. Também tenho uma quedinha (tá, um tombo) por tecnologia, e hoje a programação web é um dos meus grandes focos — mas ela não é mais a única coisa que ocupa minha cabeça.</p>
+                        <p>Ultimamente, minha rotina ganhou algo especial. Algo que não tem código, não tem manual, mas me fez sorrir de um jeito diferente: você.</p>
+                        <p>Sou um cara tranquilo, meio caseiro, que valoriza o silêncio certo, a conversa boba e o carinho simples. E por mais que eu goste de viver no meu canto, encontrar alguém como você me deu vontade de abrir espaço e dividir o mundo.</p>
+                    </div>
+                </div>
+                <!-- Imagem/Meme (Direita) -->
+                <img src="assets/images/Meme1.png" alt="Meme 1" class="timeline-image">
+            </div>
+
+            <!-- O que eu faço (Direita) -->
+            <div class="timeline-item fade-in">
+                 <!-- Imagem/Meme (Esquerda) -->
+                <img src="assets/images/Meme2.png.jpg" alt="Meme 2" class="timeline-image">
+                <div class="timeline-content-wrapper">
+                    <div class="timeline-content card-o-que-faco">
+                        <h2 class="section-title neon-text">O que eu faço</h2>
+                        <p>Hoje em dia, eu estudo e trabalho, correndo atrás dos meus objetivos — mesmo que às vezes bata aquela vontade de largar tudo e virar dono de um café com gatos.</p>
+                        <p>Mas o que tem mudado mesmo, aos poucos, é o meu jeito de olhar pro tempo. Porque agora eu não penso só em planos pra mim, e sim em construir momentos ao lado de alguém que chegou sem avisar... e ficou.</p>
+                        <p>Se antes meus dias eram corridos, agora eles têm pausas boas. Pausas que me fazem perceber que eu queria mesmo era isso: alguém pra dividir o agora e sonhar o depois.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- O que você ganha comigo (Esquerda) -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-content-wrapper">
+                    <div class="timeline-content card-beneficios">
+                        <h2 class="section-title neon-text">O que você ganha comigo</h2>
+                        <div class="benefits-grid">
+                            <div class="benefit-card">
+                                <p>Um cara fiel, que se entrega de verdade.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <p>Um parceiro que prefere mil vezes uma tarde tranquila contigo contigo do que qualquer festa sem graça.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <p>Alguém sincero, que não finge o que sente.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <p>Um cara dedicado, que presta atenção nos detalhes (até quando finge que não).</p>
+                            </div>
+                             <div class="benefit-card">
+                                <p>E claro, resposivo — no sentido certo da palavra, viu? Respondo rápido e me importo de verdade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Imagem/Meme (Direita) -->
+                <img src="assets/images/Meme3.png" alt="Meme 3" class="timeline-image">
+            </div>
+
+            <!-- Por que deveríamos ficar juntos (Direita) -->
+            <div class="timeline-item fade-in">
+                 <!-- Imagem/Meme (Esquerda) -->
+                <img src="assets/images/Meme4.png" alt="Meme 4" class="timeline-image">
+                <div class="timeline-content-wrapper">
+                    <div class="timeline-content card-porque">
+                        <h2 class="section-title neon-text">Por que deveríamos ficar juntos</h2>
+                        <p>Porque mesmo sem saber dançar direito, eu toparia te levar pra pista.</p>
+                        <p>Porque seu sorriso virou ponto de partida e de chegada no meu dia.</p>
+                        <p>E porque, se existe um "nós" possível, eu quero descobrir com você — mesmo que a gente erre o passo de vez em quando, desde que seja junto.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botão final -->
+        <button class="final-button" onclick="window.location.href='resposta.html'">Pronta?</button>
+
+    </div>
+
+    <script>
+        // Animação de fade-in ao scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.timeline-item').forEach((item) => {
+            observer.observe(item);
+        });
+
+        // Partículas de fundo
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 30; // Fewer particles for less clutter
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 4 + 2; // Size between 2px and 6px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${100 + Math.random() * 20}vh`; // Start below the viewport
+            const duration = Math.random() * 10 + 10; // Duration between 10s and 20s
+            particle.style.animationDuration = `${duration}s`;
+            const delay = Math.random() * 10; // Add some delay
+            particle.style.animationDelay = `${delay}s`;
+            particle.style.setProperty('--random-x', Math.random() * 100 - 50); // Custom property for random horizontal movement
+            particle.style.animationName = 'floatHome';
+            particlesContainer.appendChild(particle);
+        }
+
+    </script>
+</body>
+</html> 

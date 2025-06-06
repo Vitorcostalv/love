@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Amor ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #0a0a0a;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .message {
+            position: absolute;
+            color: #ff3333;
+            font-size: 2rem;
+            text-align: center;
+            text-shadow: 0 0 5px #ff3333,
+                         0 0 10px #ff3333,
+                         0 0 20px #ff3333;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        canvas {
+            position: relative;
+            z-index: 1;
+        }
+
+        .bottom-right-message {
+            position: fixed;
+            bottom: 20px; /* Distância do fundo */
+            right: 20px; /* Distância da direita */
+            color: #ff3333; /* Cor neon vermelha */
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem; /* Tamanho pequeno */
+            text-align: right;
+            max-width: 300px; /* Limita a largura */
+            opacity: 0; /* Inicialmente invisível */
+            transition: opacity 1s ease-in-out; /* Transição suave */
+            z-index: 10; /* Acima de outros elementos, se houver */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="alx"></canvas>
+    
+    <script src="script.js"></script>
+
+    <!-- Mensagem no canto inferior direito -->
+    <div class="bottom-right-message">
+        <p>Demorei um tempinho fazendo isso, então espero de verdade que você tenha gostado. Me manda sua resposta pelo zap mesmo, tá? Ainda tô aprendendo a salvar sentimentos em banco de dados 😅</p>
+    </div>
+
+    <script>
+        // Mostra a mensagem após o atraso e a faz desaparecer depois
+        window.addEventListener('load', () => {
+            const messageDiv = document.querySelector('.bottom-right-message');
+            // O atraso inicial (você definirá para 5000 manualmente)
+            setTimeout(() => {
+                messageDiv.style.opacity = 1; // Torna a mensagem visível
+                
+                // Define o tempo para a mensagem desaparecer (30 segundos após aparecer)
+                setTimeout(() => {
+                    messageDiv.style.opacity = 0; // Torna a mensagem invisível
+                }, 30000); // 30000 milissegundos = 30 segundos
+
+            }, 5000); // Manter este placeholder, você ajustará manualmente para 5000
+        });
+    </script>
+</body>
+</html>

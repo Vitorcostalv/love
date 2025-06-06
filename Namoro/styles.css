@@ -1,0 +1,269 @@
+:root {
+    --neon-purple: #b026ff;
+    --neon-blue: #4d4dff;
+    --neon-red: #ff3333;
+    --dark-bg: #0a0a0a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.neon-text {
+    text-shadow: 0 0 5px currentColor,
+                 0 0 10px currentColor,
+                 0 0 20px currentColor;
+}
+
+.neon-border {
+    box-shadow: 0 0 5px currentColor,
+                0 0 10px currentColor,
+                0 0 20px currentColor;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.timeline {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--neon-purple), var(--neon-blue));
+    z-index: 0;
+}
+
+.timeline-item {
+    margin-bottom: 80px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+    z-index: 1;
+}
+
+.timeline-content-wrapper {
+    width: 50%;
+    padding: 0 20px;
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) .timeline-content-wrapper {
+    align-self: flex-start;
+    padding-right: 70px;
+    margin-left: -40%;
+}
+
+.timeline-item:nth-child(even) .timeline-content-wrapper {
+    align-self: flex-end;
+    padding-left: 70px;
+    margin-right: -40%;
+}
+
+.timeline-content {
+    background: rgba(40, 0, 80, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    border: 1px solid var(--neon-purple);
+    box-shadow: 0 0 15px rgba(176, 38, 255, 0.5);
+    transition: all 0.4s ease-in-out;
+}
+
+.timeline-content:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 25px rgba(176, 38, 255, 0.7), 0 0 35px rgba(176, 38, 255, 0.5);
+}
+
+.section-title {
+    color: var(--neon-blue);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    text-shadow: 0 0 8px var(--neon-blue);
+    text-align: center;
+}
+
+.benefits-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.benefit-card {
+    background: rgba(50, 0, 100, 0.4);
+    border: 1px solid var(--neon-purple);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(176, 38, 255, 0.3);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--neon-purple);
+}
+
+.avatar {
+    display: block;
+    margin: 0 auto 20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.timeline-image {
+    position: absolute;
+    width: 320px;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item:nth-child(odd) .timeline-image {
+    right: 90px;
+}
+
+.timeline-item:nth-child(even) .timeline-image {
+    left: 90px;
+}
+
+.card-quem-sou-eu {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 15px rgba(176, 38, 255, 0.5);
+}
+
+.card-o-que-faco {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px rgba(77, 77, 255, 0.5);
+}
+
+.card-beneficios {
+    border-color: #00ff99;
+    box-shadow: 0 0 15px rgba(0, 255, 153, 0.5);
+}
+
+.card-porque {
+    border-color: var(--neon-red);
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+}
+
+.card-quem-sou-eu:hover {
+    box-shadow: 0 0 25px rgba(176, 38, 255, 0.7), 0 0 35px rgba(176, 38, 255, 0.5);
+}
+
+.card-o-que-faco:hover {
+    box-shadow: 0 0 25px rgba(77, 77, 255, 0.7), 0 0 35px rgba(77, 77, 255, 0.5);
+}
+
+.card-beneficios:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 153, 0.7), 0 0 35px rgba(0, 255, 153, 0.5);
+}
+
+.card-porque:hover {
+    box-shadow: 0 0 25px rgba(255, 51, 51, 0.7), 0 0 35px rgba(255, 51, 51, 0.5);
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+        transform: translateX(0);
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 20px;
+    }
+
+    .timeline-item::before {
+        left: -10px;
+        top: 20px;
+        transform: translateX(0);
+    }
+
+    .timeline-content-wrapper {
+        width: 100%;
+        padding: 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .timeline-image {
+        position: static;
+        margin-bottom: 15px;
+        transform: none;
+        width: 280px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-image,
+    .timeline-item:nth-child(even) .timeline-image {
+        left: auto;
+        right: auto;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .final-button {
+        width: 150px;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+} 
