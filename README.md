@@ -42,6 +42,8 @@ O site é totalmente responsivo e se adapta a diferentes tamanhos de tela:
    - `home.html`: Timeline interativa
    - `resposta.html`: Página de resposta
    - `Heart_in_JavaScript-main/Coracao.html`: Página final
+  
+   - https://mystery-gift-secret.netlify.app/
 
 ## 💡 Personalização
 
